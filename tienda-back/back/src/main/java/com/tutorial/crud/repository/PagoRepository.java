@@ -1,0 +1,19 @@
+package com.tutorial.crud.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.tutorial.crud.entity.Pago;
+
+import java.util.List;
+
+@Repository
+public interface PagoRepository extends JpaRepository<Pago, Integer> {
+	@Query("select v from pago v where v.venta.id_venta = :id")
+	public List<Pago> findByIdVenta( @Param("id") int id);
+	
+	@Query("select p from pago p where p.usuario.correo = :correo")
+	public List<Pago> findAllByCorreo( @Param("correo") String correo);
+}

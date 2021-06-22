@@ -11,7 +11,8 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.data.annotation.LastModifiedDate;
 
 public class ProductoDto {
-
+	
+	private int id;
     @NotBlank
     private String nombre;
     @Min(0)
@@ -32,9 +33,9 @@ public class ProductoDto {
     public ProductoDto() {
     }
     
-    public ProductoDto(@NotBlank String nombre, @Min(0) Float precio, int id_proveedor, int id_catalogo, int cantidad,
+    public ProductoDto(int id, @NotBlank String nombre, @Min(0) Float precio, int id_proveedor, int id_catalogo, int cantidad,
 			String descripcion, int id_recurso, Date fecha_cad) {
-	
+    	this.id = id;
 		this.nombre = nombre;
 		this.precio = precio;
 		this.id_proveedor = id_proveedor;
@@ -120,7 +121,16 @@ public class ProductoDto {
 	public void setFecha_cad(Date fecha_cad) {
 		this.fecha_cad = fecha_cad;
 	}
+	
+	
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {

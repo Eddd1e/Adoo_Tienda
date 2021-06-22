@@ -19,6 +19,9 @@ public class ProductoService {
     public List<Producto> list(){
         return productoRepository.findAll();
     }
+    public List<Producto> findAllProductoByIdCatalogo(int id){
+    	return productoRepository.findAllProductoByIdCatalogo(id);
+    }
 
     public Optional<Producto> getOne(int id){
         return productoRepository.findById(id);

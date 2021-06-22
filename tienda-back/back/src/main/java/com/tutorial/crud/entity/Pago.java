@@ -30,7 +30,7 @@ public class Pago {
 	private Usuario usuario;
 	
 	@OneToOne
-	@JoinColumn(name="id_metodo_pago")
+	@JoinColumn(name="id_metodo")
 	private MetodoPago metodoPago;
 	
 	@OneToOne
@@ -47,13 +47,13 @@ public class Pago {
 	
 	public Pago() {}
 	
-	public Pago(int id, Usuario usuario, MetodoPago metodoPago, Venta venta, BigDecimal cantidad, Date fecha) {
-		this.id = id;
+	public Pago( Usuario usuario, MetodoPago metodoPago, Venta venta, BigDecimal cantidad) {
+		
 		this.usuario = usuario;
 		this.metodoPago = metodoPago;
 		this.venta = venta;
 		this.cantidad = cantidad;
-		this.fecha = fecha;
+		this.fecha = new Date();
 	}
 
 	public int getId() {

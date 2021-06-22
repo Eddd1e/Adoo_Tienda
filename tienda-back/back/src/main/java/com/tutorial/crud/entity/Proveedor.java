@@ -20,17 +20,34 @@ public class Proveedor {
 	@Column(name = "telefono")
     private String telefono;
 	
+	@Column(name = "direccion")
+	private String direccion;
+	
 	@Column(name = "correo")
     private String correo;
 	
 	public Proveedor() {}
-	public Proveedor(int id, String nombre, String telefono, String correo) {
+	
+
+	public Proveedor(String nombre, String telefono, String direccion, String correo) {
 		super();
-		this.id = id;
+	
 		this.nombre = nombre;
 		this.telefono = telefono;
+		this.direccion = direccion;
 		this.correo = correo;
 	}
+
+
+	public String getDireccion() {
+		return direccion;
+	}
+
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
 
 	public int getId() {
 		return id;
@@ -62,6 +79,13 @@ public class Proveedor {
 
 	public void setCorreo(String correo) {
 		this.correo = correo;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Proveedor [id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion
+				+ ", correo=" + correo + "]";
 	}
 	
 	

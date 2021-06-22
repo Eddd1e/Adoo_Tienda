@@ -11,9 +11,11 @@ import java.util.List;
 
 @Repository
 public interface PagoRepository extends JpaRepository<Pago, Integer> {
-	@Query("select v from pago v where v.venta.id_venta = :id")
+	
+	
+	@Query("select v from Pago v where v.venta.id = :id")
 	public List<Pago> findByIdVenta( @Param("id") int id);
 	
-	@Query("select p from pago p where p.usuario.correo = :correo")
+	@Query("select p from Pago p where p.usuario.correo = :correo")
 	public List<Pago> findAllByCorreo( @Param("correo") String correo);
 }

@@ -14,28 +14,40 @@ import org.springframework.data.annotation.CreatedDate;
 import com.tutorial.crud.entity.Rol;
 
 public class UsuarioDto {
-	public UsuarioDto(String correo, String password, String telefono, int clienteFrecuente, Date fechaRegistro, Rol rol) {
+	public UsuarioDto(String correo, String password,String nombre, String telefono, int clienteFrecuente, Date fechaRegistro, int id_rol) {
 		this.correo = correo;
 		this.password = password;
 		this.telefono = telefono;
+		this.nombre = nombre;
 		this.clienteFrecuente = clienteFrecuente;
 		this.fechaRegistro = fechaRegistro;
-		this.rol = rol;
+		this.id_rol = id_rol;
 	}
 
 	private String correo;
 	private String password;
 	private String telefono;
+	private String nombre;
 	private int clienteFrecuente;
 	private Date fechaRegistro;
-	private Rol rol;
+	private int id_rol;
 
-	public Rol getRol() {
-		return rol;
+	
+
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setRol(Rol rol) {
-		this.rol = rol;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getId_rol() {
+		return id_rol;
+	}
+
+	public void setId_rol(int id_rol) {
+		this.id_rol = id_rol;
 	}
 
 	public String getCorreo() {
@@ -77,4 +89,12 @@ public class UsuarioDto {
 	public void setFechaRegistro(Date fechaRegistro) {
 		this.fechaRegistro = fechaRegistro;
 	}
+
+	@Override
+	public String toString() {
+		return "UsuarioDto [correo=" + correo + ", password=" + password + ", telefono=" + telefono
+				+ ", clienteFrecuente=" + clienteFrecuente + ", fechaRegistro=" + fechaRegistro + ", id_rol=" + id_rol
+				+ "]";
+	}
+	
 }

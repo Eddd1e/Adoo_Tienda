@@ -1,5 +1,6 @@
 package com.tutorial.crud.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,7 +25,7 @@ public class Rol {
 	private String nombre;
 	
 	@JsonIgnore
-	@OneToOne(mappedBy="rol")
+	@OneToOne(mappedBy="rol",cascade = CascadeType.ALL, orphanRemoval = true)
     private Usuario user;
 	
 	public Rol() {

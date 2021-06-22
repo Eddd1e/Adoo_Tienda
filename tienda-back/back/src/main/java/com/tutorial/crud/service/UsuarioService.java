@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.tutorial.crud.entity.Carrito;
 import com.tutorial.crud.entity.Producto;
 import com.tutorial.crud.entity.Usuario;
 import com.tutorial.crud.repository.UsuarioRepository;
@@ -27,7 +28,21 @@ public class UsuarioService {
 	
 	public Optional<Usuario> encontrarPorCorreo(String correo) {
 		Optional<Usuario> temp = usuarioRepository.findByCorreo(correo);
-		log.info("Buscando usuario con correo : {}", temp.get().getRol().getNombre());
+//		log.info("Buscando usuario con correo : {}", temp.get().getRol().getNombre());
 		return usuarioRepository.findByCorreo(correo);
 	}
+	
+	 public void  save(Usuario u){
+	    	usuarioRepository.save(u);
+	    }
+
+	    public void delete(int id){
+	    	usuarioRepository.deleteById(id);
+	    }
+
+	    public boolean existsById(int id){
+	        return usuarioRepository.existsById(id);
+	    }
+	    
+	   
 }

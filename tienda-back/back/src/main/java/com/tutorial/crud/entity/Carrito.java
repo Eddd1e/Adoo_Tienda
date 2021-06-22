@@ -7,16 +7,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Carrito {
 	@EmbeddedId
 	private CarritoKey id;
 	
+	@JsonIgnore
 	@ManyToOne
 	@MapsId("idProducto")
 	@JoinColumn(name = "id_producto")
 	private Producto producto;
 	
+	@JsonIgnore
 	@ManyToOne
 	@MapsId("correo")
 	@JoinColumn(name = "correo")

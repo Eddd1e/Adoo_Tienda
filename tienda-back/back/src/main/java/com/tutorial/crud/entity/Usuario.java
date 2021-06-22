@@ -35,6 +35,9 @@ public class Usuario {
 	@Column(name = "password")
 	private String password;
 	
+	@Column(name = "nombre")
+	private String nombre;
+	
 	@Column(name = "telefono")
 	private String telefono;
 	
@@ -104,13 +107,21 @@ public class Usuario {
 	public void setCarrito(List<Carrito> carrito) {
 		this.carrito = carrito;
 	}
-	public Usuario(String correo, String password, String telefono, int clienteFrecuente, Date fechaRegistro,
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public Usuario(String correo, String password,String nombre, String telefono, int clienteFrecuente,
 			List<Carrito> carrito, Rol rol) {
 		this.correo = correo;
 		this.password = password;
 		this.telefono = telefono;
+		this.nombre = nombre;
 		this.clienteFrecuente = clienteFrecuente;
-		this.fechaRegistro = fechaRegistro;
+		this.fechaRegistro = new Date();
 		this.carrito = carrito;
 		this.rol = rol;
 	}

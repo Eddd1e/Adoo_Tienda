@@ -49,19 +49,24 @@ public class Venta {
 	@ManyToMany
 	@JoinTable(
 	  name = "venta_producto", 
-	  joinColumns = @JoinColumn(name = "producto_id"), 
-	  inverseJoinColumns = @JoinColumn(name = "venta_id"))
+	  joinColumns = @JoinColumn(name = "id_producto"), 
+	  inverseJoinColumns = @JoinColumn(name = "id_Venta"))
 	private List<Producto> productoVenta;
 	
 	public Venta() {}
 	
-	public Venta(int id, Usuario usuario, BigDecimal deuda, BigDecimal pagado, Date fecha) {
+	
+	public Venta(int id, Usuario usuario, BigDecimal deuda, BigDecimal pagado, Date fecha,
+			List<Producto> productoVenta) {
 		this.id = id;
 		this.usuario = usuario;
 		this.deuda = deuda;
 		this.pagado = pagado;
 		this.fecha = fecha;
+		this.productoVenta = productoVenta;
 	}
+
+
 	public int getId() {
 		return id;
 	}
@@ -91,6 +96,14 @@ public class Venta {
 	}
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public List<Producto> getProductoVenta() {
+		return productoVenta;
+	}
+
+	public void setProductoVenta(List<Producto> productoVenta) {
+		this.productoVenta = productoVenta;
 	}
 
 

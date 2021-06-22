@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tutorial.crud.entity.Proveedor;
-import com.tutorial.crud.entity.Recurso;
 import com.tutorial.crud.repository.ProveedorRepository;
-import com.tutorial.crud.repository.RecursoRepository;
 
 
 @Service

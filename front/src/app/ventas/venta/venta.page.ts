@@ -37,6 +37,7 @@ export class VentaPage implements OnInit {
     this.pagoervice.detalleByIdVenta(id).subscribe(
       data => {
         this.pagos = data;
+        console.log(this.pagos);
       
       },
       err => {
@@ -46,6 +47,7 @@ export class VentaPage implements OnInit {
     this.ventaService.detalle(id).subscribe(
       data => {
         this.venta = data;
+        console.log(this.venta)
       
       },
       err => {

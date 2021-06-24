@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Pago } from 'src/app/models/pago';
 import { PagoService } from 'src/app/services/pago.service';
 import { VentaService } from 'src/app/services/ventaService';
 import { Venta } from '../../models/venta';
+import { Producto } from 'src/app/models/producto';
+import { ProductoVenta } from 'src/app/models/venta/productoVenta';
 
 @Component({
   selector: 'app-venta',
@@ -47,7 +49,8 @@ export class VentaPage implements OnInit {
     this.ventaService.detalle(id).subscribe(
       data => {
         this.venta = data;
-        console.log(this.venta)
+        console.log("bat i ned")
+        console.log(this.venta.productoVenta[0].producto.nombre)
       
       },
       err => {

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Venta } from 'src/app/models/venta';
+import { Producto } from 'src/app/models/producto';
+import { ProductoVenta } from 'src/app/models/venta/productoVenta';
 import { VentaService } from 'src/app/services/ventaService';
 
 @Component({
@@ -13,6 +15,7 @@ import { VentaService } from 'src/app/services/ventaService';
 export class VentasAdminPage implements OnInit {
 
   ventas: Venta [] = [];
+  ready = false;
 
   msjOK = '';
   msjErr = '';
@@ -31,10 +34,11 @@ export class VentasAdminPage implements OnInit {
     this.ventaService.lista().subscribe(
       data => {
         this.ventas = data;
-        console.log(this.ventas[0].productoVenta[0].producto.nombre);
-        console.log(data);
+        
+        this.ready = true;
       },
       err => {
+        console.log("error")
         console.log(err);
       }
     );
@@ -53,4 +57,5 @@ export class VentasAdminPage implements OnInit {
     });
     toast.present();
   }
+
 }

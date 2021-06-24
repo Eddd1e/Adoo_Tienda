@@ -2,6 +2,7 @@ import { Usuario } from "./usuario";
 import { ProductoVenta } from "./venta/productoVenta";
 
 export class Venta{
+    usuario:Usuario;
     id?: number;
     deuda?: number;
     pagado?: number;
